@@ -1,5 +1,6 @@
 ﻿using Avalonia.Controls;
 using Avalonia.MusicStore.Helpers;
+using Avalonia.MusicStore.Messages;
 using Avalonia.MusicStore.Models;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
@@ -66,8 +67,12 @@ namespace Avalonia.MusicStore.ViewModels
         {
             BuyMusicCommand = new RelayCommand<UserControl>((control) =>
             {
+                if (_selectedAlbum == null)
+                {
+                    return;
+                }
                 AvaloniaHelper.GetTopLevel(control)?.Close();
-                WeakReferenceMessenger.Default.Send<AlbumViewModel>(SelectedAlbum);
+                WeakReferenceMessenger.Default.Send<MessageParam>(new MessageParam { Data = _selectedAlbum });
             });
         }
 

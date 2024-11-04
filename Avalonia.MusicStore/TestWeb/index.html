@@ -15,6 +15,7 @@
         <button style="margin-left:10px" v-on:click="maximizeWindow">最大化、还原窗口</button>
         <button style="margin-left:10px" v-on:click="getHttpHeaderParamsInfo">获取httpheader参数方法</button>
         <button style="margin-left:10px" v-on:click="checkAppUpdate">检查更新</button>
+        <p>{{ result }}</p>
     </div>
 
     <script>
@@ -23,7 +24,7 @@
         // 拖动窗体
         window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('app3').addEventListener('mousedown', evt => {
-                chrome.webview.hostObjects.UniStuWebView2HostObject.MouseDownDrag();
+                AvaWebView.mouseDownDrag();
             });
         });
 
@@ -38,7 +39,7 @@
                     await hostObject.closeWindow();
                 },
                 async minimizeWindow() {
-                    await hostObject.MinimizeWindow();
+                    await hostObject.minimizeWindow();
                 },
                 async maximizeWindow() {
                     await hostObject.MaximizeWindow();

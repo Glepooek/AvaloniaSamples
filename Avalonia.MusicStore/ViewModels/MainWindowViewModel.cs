@@ -11,10 +11,11 @@ using Avalonia.MusicStore.Views;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Avalonia.MusicStore.Models;
+using Avalonia.MusicStore.Messages;
 
 namespace Avalonia.MusicStore.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase, IRecipient<AlbumViewModel>
+    public class MainWindowViewModel : ViewModelBase, IRecipient<MessageParam>
     {
         #region Properties
 
@@ -28,7 +29,7 @@ namespace Avalonia.MusicStore.ViewModels
         public RelayCommand LoadedCommand { get; private set; }
         public RelayCommand UnloadedCommand { get; private set; }
         public RelayCommand ShowWebCommand { get; private set; }
-
+        public RelayCommand CallJSMethodCommand { get; private set; }
 
         #endregion
 
@@ -42,12 +43,12 @@ namespace Avalonia.MusicStore.ViewModels
                 dialog.ShowDialog(AvaloniaHelper.GetMainWindow());
             });
 
-            LoadedCommand = new RelayCommand(()=>
+            LoadedCommand = new RelayCommand(() =>
             {
                 LoadAlbums();
             });
 
-            UnloadedCommand = new RelayCommand(() => 
+            UnloadedCommand = new RelayCommand(() =>
             {
                 WeakReferenceMessenger.Default.UnregisterAll(this);
             });
@@ -55,18 +56,30 @@ namespace Avalonia.MusicStore.ViewModels
             ShowWebCommand = new RelayCommand(() =>
             {
                 WebViewWindow dialog = new WebViewWindow();
-                dialog.ShowDialog(AvaloniaHelper.GetMainWindow());
+                //dialog.ShowDialog(AvaloniaHelper.GetMainWindow());
+                dialog.Show(AvaloniaHelper.GetMainWindow());
             });
 
-            WeakReferenceMessenger.Default.Register<AlbumViewModel>(this);
+            CallJSMethodCommand = new RelayCommand(() =>
+            {
+                WeakReferenceMessenger.Default.Send<MessageParam>(new MessageParam { Reult = true });
+            });
+
+            WeakReferenceMessenger.Default.Register<MessageParam>(this);
         }
 
-        public async void Receive(AlbumViewModel message)
+        public async void Receive(MessageParam message)
         {
-            if (!Albums.Contains(message))
+            if (message == null)
             {
-                Albums.Add(message);
-                await message.SaveToDiskAsync();
+                return;
+            }
+
+            if (message.Data is AlbumViewModel albumVM
+                && !Albums.Contains(albumVM))
+            {
+                Albums.Add(albumVM);
+                await albumVM.SaveToDiskAsync();
             }
         }
 
