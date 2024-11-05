@@ -21,6 +21,8 @@ namespace Avalonia.MusicStore.ViewModels
 
         public ObservableCollection<AlbumViewModel> Albums { get; } = new();
 
+        public string Text { get; set; }
+
         #endregion
 
         #region Commands
@@ -64,6 +66,8 @@ namespace Avalonia.MusicStore.ViewModels
             {
                 WeakReferenceMessenger.Default.Send<MessageParam>(new MessageParam { Reult = true });
             });
+
+            Text = " <h1>欢迎来到我的网页</h1>\r\n    <p>这是一个段落。你可以在这里添加内容。</p>\r\n    <p>学习HTML是创建网页的第一步。</p>\r\n";
 
             WeakReferenceMessenger.Default.Register<MessageParam>(this);
         }
