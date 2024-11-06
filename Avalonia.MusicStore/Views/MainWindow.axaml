@@ -2,6 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+        xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
         xmlns:html="using:TheArtOfDev.HtmlRenderer.Avalonia"
         xmlns:vm="using:Avalonia.MusicStore.ViewModels"
         xmlns:views="clr-namespace:Avalonia.MusicStore.Views"
@@ -24,6 +26,16 @@
         -->
         <vm:MainWindowViewModel />
     </Design.DataContext>
+
+    <i:Interaction.Behaviors>
+        <ia:EventTriggerBehavior EventName="Loaded">
+            <ia:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </ia:EventTriggerBehavior>
+        <!--  Avalonia的bug，无法执行  -->
+        <ia:EventTriggerBehavior EventName="Unloaded">
+            <ia:InvokeCommandAction Command="{Binding UnloadedCommand}" />
+        </ia:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
 
     <Panel>
         <ExperimentalAcrylicBorder IsHitTestVisible="False">
