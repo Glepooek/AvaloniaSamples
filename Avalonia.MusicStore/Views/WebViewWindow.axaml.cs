@@ -1,8 +1,5 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 using Avalonia.MusicStore.Messages;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
@@ -35,9 +32,19 @@ public partial class WebViewWindow : Window, IRecipient<MessageParam>
         cefBrowser = new AvaloniaCefBrowser();
         //cefBrowser.Address = "https://www.cnblogs.com";
         cefBrowser.Address = $"{AppDomain.CurrentDomain.BaseDirectory}TestWeb\\index.html";
+        cefBrowser.LoadEnd += CefBrowser_LoadEnd;
+
         //this.Content = cefBrowser;
         panel.Children.Add(cefBrowser);
         cefBrowser.RegisterJavascriptObject(new JSCallback(this), "AvaWebView");
+    }
+
+    private void CefBrowser_LoadEnd(object sender, Xilium.CefGlue.Common.Events.LoadEndEventArgs e)
+    {
+        Dispatcher.UIThread.Invoke(new Action(() =>
+        {
+            panel.Children.Remove(canvas);
+        }));
     }
 
     protected override void OnPointerPressed(PointerPressedEventArgs e)
