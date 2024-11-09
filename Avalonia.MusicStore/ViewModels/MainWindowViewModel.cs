@@ -21,6 +21,8 @@ namespace Avalonia.MusicStore.ViewModels
 
         public ObservableCollection<AlbumViewModel> Albums { get; } = new();
 
+        public ObservableCollection<Person> People { get; } = new();
+
         public string Text { get; set; }
 
         #endregion
@@ -68,6 +70,9 @@ namespace Avalonia.MusicStore.ViewModels
             });
 
             Text = " <h1>欢迎来到我的网页</h1>\r\n    <p>这是一个段落。你可以在这里添加内容。</p>\r\n    <p>学习HTML是创建网页的第一步。</p>\r\n";
+
+            People.Add(new Person() { Id = "10", Name = "anyu", Address = "Beijing", Sex = Sex.Male });
+            People.Add(new Person() { Id = "20", Name = "lff", Address = "Beijing", Sex = Sex.Female });
 
             WeakReferenceMessenger.Default.Register<MessageParam>(this);
         }
