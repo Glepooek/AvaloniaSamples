@@ -8,7 +8,7 @@
         xmlns:vm="using:Avalonia.MusicStore.ViewModels"
         xmlns:model="using:Avalonia.MusicStore.Models"
         xmlns:datatemplates="using:Avalonia.MusicStore.DataTemplates"
-        xmlns:views="clr-namespace:Avalonia.MusicStore.Views"
+        xmlns:views="using:Avalonia.MusicStore.Views"
         mc:Ignorable="d"
         d:DesignWidth="800"
         d:DesignHeight="450"
@@ -21,9 +21,22 @@
         Background="Transparent"
         ExtendClientAreaToDecorationsHint="True">
 
+    <Window.Resources>
+        <Flyout x:Key="SharedFlyout"
+                ShowMode="Standard"
+                Placement="BottomEdgeAlignedLeft">
+            <TextBlock Text="这是弹出层" />
+        </Flyout>
+    </Window.Resources>
+
     <Window.Styles>
         <StyleInclude Source="avares://Avalonia.MusicStore/Resources/ButtonStyles.axaml" />
+        <Style Selector="FlyoutPresenter">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Margin" Value="0,5,0,0" />
+        </Style>
     </Window.Styles>
+
     <Window.DataTemplates>
         <datatemplates:PersonDataTemplateSelector>
             <datatemplates:PersonDataTemplateSelector.MaleDataTemplate>
@@ -83,6 +96,9 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Spacing="10">
+                <Button Classes="Call"
+                        Content="ShowFlyout"
+                        Flyout="{StaticResource SharedFlyout}" />
                 <Button Classes="Call"
                         Content="CallJSMethod"
                         Command="{Binding CallJSMethodCommand}" />

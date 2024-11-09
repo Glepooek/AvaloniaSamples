@@ -102,7 +102,7 @@
         </Style>
     </Window.Styles>
 
-    <Panel Name="panel">
+    <Panel x:Name="panel">
         <ExperimentalAcrylicBorder IsHitTestVisible="False">
             <ExperimentalAcrylicBorder.Material>
                 <ExperimentalAcrylicMaterial BackgroundSource="Digger"

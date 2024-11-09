@@ -1,8 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.MusicStore.ViewModels;
 using CommunityToolkit.Mvvm.Messaging;
-using System;
-using System.Threading.Tasks;
 
 namespace Avalonia.MusicStore.Views
 {
