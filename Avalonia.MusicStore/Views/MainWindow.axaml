@@ -163,8 +163,9 @@
             <StackPanel Grid.Row="2"
                         Spacing="20"
                         Orientation="Horizontal">
+                <!--  显示富文本  -->
                 <html:HtmlPanel Text="{Binding Text}" />
-                <!--<ContentControl Content="{Binding Person}" />-->
+                <!--  数据模版选择器  -->
                 <ListBox ItemsSource="{Binding People}">
                     <ListBox.Styles>
                         <Style Selector="ListBoxItem">
@@ -177,6 +178,11 @@
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                 </ListBox>
+                <!--  IconFont  -->
+                <TextBlock FontFamily="{StaticResource IconFont}"
+                           FontSize="20"
+                           Foreground="Red"
+                           Text="&#xe71a;" />
             </StackPanel>
         </Grid>
     </Panel>

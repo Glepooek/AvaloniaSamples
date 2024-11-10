@@ -3,7 +3,6 @@
              x:Class="Avalonia.MusicStore.App"
              xmlns:local="using:Avalonia.MusicStore"
              RequestedThemeVariant="Dark">
-    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
 
     <Application.DataTemplates>
         <local:ViewLocator />
@@ -13,4 +12,8 @@
         <FluentTheme />
         <StyleInclude Source="avares://Avalonia.MusicStore/Resources/Icons.axaml" />
     </Application.Styles>
+
+    <Application.Resources>
+        <FontFamily x:Key="IconFont">avares://Avalonia.MusicStore/Assets/#iconfont</FontFamily>
+    </Application.Resources>
 </Application>
