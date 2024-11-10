@@ -26,6 +26,10 @@
                 DockPanel.Dock="Bottom"
                 HorizontalAlignment="Center" />
 
+        <!--
+            默认情况下，DockPanel元素的最后一个子元素将“填充”剩余的未分配空间。
+            如果不希望出现这种情况，可以将LastChildFill属性设置为false。
+        -->
         <ListBox ItemsSource="{Binding SearchResults}"
                  SelectedItem="{Binding SelectedAlbum}"
                  Background="Transparent"

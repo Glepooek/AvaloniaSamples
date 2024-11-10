@@ -13,6 +13,15 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="README.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AvaloniaXaml Include="README.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AsyncImageLoader.Avalonia" Version="3.3.0" />
         <PackageReference Include="Avalonia" Version="11.2.0" />
         <PackageReference Include="Avalonia.Desktop" Version="11.2.0" />
         <PackageReference Include="Avalonia.HtmlRenderer" Version="11.0.0" />
@@ -24,6 +33,7 @@
         <PackageReference Include="CefGlue.Avalonia" Version="120.6099.209" />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
         <PackageReference Include="iTunesSearch" Version="1.0.44" />
+        <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
     </ItemGroup>
 
     <ItemGroup>
