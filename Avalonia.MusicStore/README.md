@@ -5,6 +5,8 @@
 
 ### Avalonia与WPF对比，特有的功能：
 - 支持编译绑定
+- Debug模式下可用F12启动DevTools，类似snoop
+- 
 
 ### Avalonia与WPF对比，功能上不同：
 - 样式资源放在顶级元素的Styles中

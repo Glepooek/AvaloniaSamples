@@ -13,12 +13,17 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Assets\iconfont.ttf" />
-      <None Remove="README.md" />
+        <AvaloniaResource Remove="Assets\Langs\Resources.en-US.resx" />
+        <AvaloniaResource Remove="Assets\Langs\Resources.resx" />
     </ItemGroup>
 
     <ItemGroup>
-      <AvaloniaXaml Include="README.md" />
+        <None Remove="Assets\iconfont.ttf" />
+        <None Remove="README.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaXaml Include="README.md" />
     </ItemGroup>
 
     <ItemGroup>
@@ -39,6 +44,21 @@
 
     <ItemGroup>
         <Reference Include="System.Xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Assets\Langs\Resources.en-US.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Assets\Langs\Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <Compile Update="Assets\Langs\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>

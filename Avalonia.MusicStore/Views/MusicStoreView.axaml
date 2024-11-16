@@ -5,6 +5,7 @@
              xmlns:vm="using:Avalonia.MusicStore.ViewModels"
              x:Class="Avalonia.MusicStore.Views.MusicStoreView"
              xmlns:views="using:Avalonia.MusicStore.Views"
+             xmlns:lang="using:Avalonia.MusicStore.Assets.Langs"
              x:DataType="vm:MusicStoreViewModel"
              mc:Ignorable="d"
              d:DesignWidth="800"
@@ -21,7 +22,7 @@
             <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" />
         </StackPanel>
 
-        <Button Content="Buy Album"
+        <Button Content="{x:Static lang:Resources.btn_BuyAlbum}"
                 Command="{Binding BuyMusicCommand}"
                 CommandParameter="{Binding ElementName=root}"
                 DockPanel.Dock="Bottom"

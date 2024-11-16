@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using Avalonia.Logging;
 using System;
 using Xilium.CefGlue.Avalonia;
 
@@ -18,6 +19,6 @@ namespace Avalonia.MusicStore
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .WithInterFont()
-                .LogToTrace();
+                .LogToTrace(LogEventLevel.Debug);
     }
 }

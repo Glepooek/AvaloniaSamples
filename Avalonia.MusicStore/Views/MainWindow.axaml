@@ -9,6 +9,7 @@
         xmlns:model="using:Avalonia.MusicStore.Models"
         xmlns:datatemplates="using:Avalonia.MusicStore.DataTemplates"
         xmlns:views="using:Avalonia.MusicStore.Views"
+        xmlns:lang="using:Avalonia.MusicStore.Assets.Langs"
         mc:Ignorable="d"
         d:DesignWidth="800"
         d:DesignHeight="450"
@@ -100,6 +101,7 @@
 
     </Window.DataTemplates>
 
+    <!--  设计时预览  -->
     <Design.DataContext>
         <vm:MainWindowViewModel />
     </Design.DataContext>
@@ -133,13 +135,13 @@
                         Spacing="10">
                 <Button Theme="{StaticResource ButtonStyle}"
                         Classes="Call"
-                        Content="ShowFlyout"
+                        Content="{x:Static lang:Resources.btn_ShowFlyout}"
                         Flyout="{StaticResource SharedFlyout}" />
                 <Button Classes="Call"
-                        Content="CallJSMethod"
+                        Content="{x:Static lang:Resources.btn_CallJSMethod}"
                         Command="{Binding CallJSMethodCommand}" />
                 <Button Classes="Call"
-                        Content="ShowWeb"
+                        Content="{x:Static lang:Resources.btn_ShowWeb}"
                         Command="{Binding ShowWebCommand}" />
                 <Button Classes="Icon" Command="{Binding BuyMusicCommand}">
                     <PathIcon Data="{StaticResource store_microsoft_regular}" />

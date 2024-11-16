@@ -5,6 +5,8 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Avalonia.MusicStore.ViewModels;
 using Avalonia.MusicStore.Views;
+using System.Globalization;
+using System.Threading;
 
 namespace Avalonia.MusicStore
 {
@@ -17,6 +19,7 @@ namespace Avalonia.MusicStore
 
         public override void OnFrameworkInitializationCompleted()
         {
+            //Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 // Line below is needed to remove Avalonia data validation.
