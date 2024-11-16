@@ -3,6 +3,9 @@
 - 没有触发器（属性触发器、数据触发器等）
 - 没有Popup，类似控件Flyout
 
+### Avalonia与WPF对比，特有的功能：
+- 支持编译绑定
+
 ### Avalonia与WPF对比，功能上不同：
 - 样式资源放在顶级元素的Styles中
 - 数据模版放在顶级元素的DataTemplates中；数据模版选择器实现IDataTemplate

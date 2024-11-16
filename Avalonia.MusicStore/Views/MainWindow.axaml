@@ -20,6 +20,7 @@
         TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
         ExtendClientAreaToDecorationsHint="True">
+    <!--  根元素中设置x:DataType="vm:MainWindowViewModel"，是为了支持编译绑定  -->
 
     <Window.Resources>
         <Flyout x:Key="SharedFlyout"

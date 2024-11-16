@@ -37,10 +37,8 @@ namespace Avalonia.MusicStore.ViewModels
         #region Methods
         public async Task LoadCover()
         {
-            await using (var imageStream = await _album.LoadCoverBitmapAsync())
-            {
-                Cover = await Task.Run(() => Bitmap.DecodeToWidth(imageStream, 400));
-            }
+            await using var imageStream = await _album.LoadCoverBitmapAsync();
+            Cover = await Task.Run(() => Bitmap.DecodeToWidth(imageStream, 400));
         }
 
         public async Task SaveToDiskAsync()
@@ -53,10 +51,8 @@ namespace Avalonia.MusicStore.ViewModels
 
                 await Task.Run(() =>
                 {
-                    using (var fs = _album.SaveCoverBitmapStream())
-                    {
-                        bitmap.Save(fs);
-                    }
+                    using var fs = _album.SaveCoverBitmapStream();
+                    bitmap.Save(fs);
                 });
             }
         }
