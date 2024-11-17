@@ -18,7 +18,7 @@
 
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
-            <TextBox Text="{Binding SearchText}" Watermark="Search for Albums...." />
+            <TextBox Text="{Binding SearchText}" Watermark="{x:Static lang:Resources.txt_SearchAlbums}" />
             <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" />
         </StackPanel>
 

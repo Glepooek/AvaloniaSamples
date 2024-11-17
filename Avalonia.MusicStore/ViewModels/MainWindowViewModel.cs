@@ -29,9 +29,9 @@ namespace Avalonia.MusicStore.ViewModels
 
         #region Commands
 
-        public RelayCommand BuyMusicCommand { get; private set; }
         public RelayCommand LoadedCommand { get; private set; }
         public RelayCommand UnloadedCommand { get; private set; }
+        public RelayCommand ShowAlbumsCommand { get; private set; }
         public RelayCommand ShowWebCommand { get; private set; }
         public RelayCommand CallJSMethodCommand { get; private set; }
 
@@ -41,12 +41,6 @@ namespace Avalonia.MusicStore.ViewModels
 
         public MainWindowViewModel()
         {
-            BuyMusicCommand = new RelayCommand(() =>
-            {
-                MusicStoreWindow dialog = new MusicStoreWindow();
-                dialog.ShowDialog(AvaloniaHelper.GetMainWindow());
-            });
-
             LoadedCommand = new RelayCommand(() =>
             {
                 LoadAlbums();
@@ -67,6 +61,12 @@ namespace Avalonia.MusicStore.ViewModels
             CallJSMethodCommand = new RelayCommand(() =>
             {
                 WeakReferenceMessenger.Default.Send<MessageParam>(new MessageParam { Reult = true });
+            });
+
+            ShowAlbumsCommand = new RelayCommand(() =>
+            {
+                MusicStoreWindow dialog = new MusicStoreWindow();
+                dialog.ShowDialog(AvaloniaHelper.GetMainWindow());
             });
 
             Text = " <h1>欢迎来到我的网页</h1>\r\n    <p>这是一个段落。你可以在这里添加内容。</p>\r\n    <p>学习HTML是创建网页的第一步。</p>\r\n";

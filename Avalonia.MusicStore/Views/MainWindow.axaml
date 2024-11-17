@@ -143,7 +143,7 @@
                 <Button Classes="Call"
                         Content="{x:Static lang:Resources.btn_ShowWeb}"
                         Command="{Binding ShowWebCommand}" />
-                <Button Classes="Icon" Command="{Binding BuyMusicCommand}">
+                <Button Classes="Icon" Command="{Binding ShowAlbumsCommand}">
                     <PathIcon Data="{StaticResource store_microsoft_regular}" />
                 </Button>
             </StackPanel>

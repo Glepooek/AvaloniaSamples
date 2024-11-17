@@ -129,4 +129,7 @@
   <data name="btn_ShowWeb" xml:space="preserve">
     <value>Show Web</value>
   </data>
+  <data name="txt_SearchAlbums" xml:space="preserve">
+    <value>Search for Albums....</value>
+  </data>
 </root>

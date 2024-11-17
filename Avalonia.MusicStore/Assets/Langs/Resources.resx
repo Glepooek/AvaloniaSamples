@@ -129,4 +129,7 @@
   <data name="btn_ShowWeb" xml:space="preserve">
     <value>显示网页</value>
   </data>
+  <data name="txt_SearchAlbums" xml:space="preserve">
+    <value>查询专辑</value>
+  </data>
 </root>

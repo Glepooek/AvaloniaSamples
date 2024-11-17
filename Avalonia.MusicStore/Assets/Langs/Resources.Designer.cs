@@ -95,5 +95,14 @@ namespace Avalonia.MusicStore.Assets.Langs {
                 return ResourceManager.GetString("btn_ShowWeb", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 查询专辑.
+        /// </summary>
+        public static string txt_SearchAlbums {
+            get {
+                return ResourceManager.GetString("txt_SearchAlbums", resourceCulture);
+            }
+        }
     }
 }
